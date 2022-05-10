@@ -9,7 +9,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
         assetModuleFilename: 'images/[hash].[ext]',
-        publicPath: '/'
+        publicPath: './',
+        clean: true,
     },
     resolve: {
         extensions: ['.js','.jsx'],
@@ -51,7 +52,9 @@ module.exports = {
             template: './public/index.html',
             filename:  'index.html'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: '[name][hash].css'
+        })
     ],
     devServer: {
         historyApiFallback: true,
